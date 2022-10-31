@@ -1,0 +1,67 @@
+﻿<Window x:Name="WinTembroRecord" x:Class="TembroRecord.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TembroRecord"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="287" Width="485" Loaded="WinTembroRecord_Loaded">
+    <Grid>
+        <ComboBox x:Name="cmbInput" HorizontalAlignment="Center" Margin="14,10,15,0" VerticalAlignment="Top" Width="200" Visibility="Hidden" ToolTip="Microphone" Grid.ColumnSpan="2">
+            <ComboBox.Style>
+                <Style>
+                    <Setter Property="Control.Background" Value="Gainsboro"/>
+                </Style>
+            </ComboBox.Style>
+        </ComboBox>
+        <ComboBox x:Name="cmbOutput" HorizontalAlignment="Center" Margin="14,47,15,0" VerticalAlignment="Top" Width="200" ToolTip="Speaker" Grid.ColumnSpan="2" Visibility="Hidden">
+            <ComboBox.Style>
+                <Style>
+                    <Setter Property="Control.Background" Value="Gainsboro"/>
+                </Style>
+            </ComboBox.Style>
+            <ProgressBar Height="10" Width="100"/>
+        </ComboBox>
+        <Button x:Name="btnRecord" Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center" Width="56" Height="56" BorderBrush="{x:Null}" Foreground="{x:Null}">
+            <Button.Background>
+                <ImageBrush x:Name="ImgBackRecord" ImageSource="/button-record-inactive.png"/>
+            </Button.Background>
+            <Button.Template>
+                <ControlTemplate>
+                    <Border  Background="{TemplateBinding Background}" Width="56" Height="56"/>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="btnPlay" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="110,0,0,0" Width="56" Height="56" BorderBrush="{x:Null}" Foreground="{x:Null}">
+            <Button.Background>
+                <ImageBrush x:Name="ImgBackPlay" ImageSource="/button-play-inactive.png"/>
+            </Button.Background>
+            <Button.Template>
+                <ControlTemplate>
+                    <Border  Background="{TemplateBinding Background}" Width="56" Height="56"/>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="btnTembro" Content="Button" HorizontalAlignment="Left" Margin="321,0,0,0" VerticalAlignment="Center" Width="56" Height="56" BorderBrush="{x:Null}" Foreground="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="/button-turbo-inactive.png"/>
+            </Button.Background>
+            <Button.Template>
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}" Width="56" Height="56"/>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <ProgressBar x:Name="pbRecord" HorizontalAlignment="Center" Height="21" Margin="0,48,0,0" VerticalAlignment="Top" Width="200" BorderBrush="{x:Null}" Foreground="{x:Null}">
+            <ProgressBar.Background>
+                <ImageBrush x:Name="ImgPBRecordBack" ImageSource="/progressbar-backgrnd.png"/>
+            </ProgressBar.Background>
+            <ProgressBar.Template>
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"/>
+                </ControlTemplate>
+            </ProgressBar.Template>
+        </ProgressBar>
+
+    </Grid>
+</Window>
