@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TembroRecord"
         mc:Ignorable="d"
-        Title="MainWindow" Height="287" Width="485" Loaded="WinTembroRecord_Loaded">
+        Title="MainWindow" Height="287" Width="485" Loaded="WinTembroRecord_Loaded" Closing="WinTembroRecord_Closing">
     <Grid>
         <ComboBox x:Name="cmbInput" HorizontalAlignment="Center" Margin="14,10,15,0" VerticalAlignment="Top" Width="200" Visibility="Hidden" ToolTip="Microphone" Grid.ColumnSpan="2">
             <ComboBox.Style>
@@ -22,7 +22,7 @@
             </ComboBox.Style>
             <ProgressBar Height="10" Width="100"/>
         </ComboBox>
-        <Button x:Name="btnRecord" Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center" Width="56" Height="56" BorderBrush="{x:Null}" Foreground="{x:Null}">
+        <Button x:Name="btnRecord" Content="Button" HorizontalAlignment="Center" VerticalAlignment="Top" Width="56" Height="56" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="0,95,0,0" ToolTip="Record" Click="btnRecord_Click" MouseMove="btnRecord_MouseMove" MouseLeave="btnRecord_MouseLeave">
             <Button.Background>
                 <ImageBrush x:Name="ImgBackRecord" ImageSource="/button-record-inactive.png"/>
             </Button.Background>
@@ -32,7 +32,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="btnPlay" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="110,0,0,0" Width="56" Height="56" BorderBrush="{x:Null}" Foreground="{x:Null}">
+        <Button x:Name="btnPlay" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,95,0,0" Width="56" Height="56" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="btnPlay_Click" MouseMove="btnPlay_MouseMove" MouseLeave="btnPlay_MouseLeave">
             <Button.Background>
                 <ImageBrush x:Name="ImgBackPlay" ImageSource="/button-play-inactive.png"/>
             </Button.Background>
@@ -42,9 +42,9 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="btnTembro" Content="Button" HorizontalAlignment="Left" Margin="321,0,0,0" VerticalAlignment="Center" Width="56" Height="56" BorderBrush="{x:Null}" Foreground="{x:Null}">
+        <Button x:Name="btnTembro" Content="Button" HorizontalAlignment="Left" Margin="305,95,0,0" VerticalAlignment="Top" Width="56" Height="56" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="btnTembro_Click" MouseMove="btnTembro_MouseMove" MouseLeave="btnTembro_MouseLeave">
             <Button.Background>
-                <ImageBrush ImageSource="/button-turbo-inactive.png"/>
+                <ImageBrush x:Name="ImgBackTembro" ImageSource="/button-turbo-inactive.png"/>
             </Button.Background>
             <Button.Template>
                 <ControlTemplate>
@@ -52,7 +52,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <ProgressBar x:Name="pbRecord" HorizontalAlignment="Center" Height="21" Margin="0,48,0,0" VerticalAlignment="Top" Width="200" BorderBrush="{x:Null}" Foreground="{x:Null}">
+        <ProgressBar x:Name="pbRecord" HorizontalAlignment="Center" Height="21" Margin="0,35,0,0" VerticalAlignment="Top" Width="200" BorderBrush="{x:Null}" Foreground="{x:Null}" Visibility="Hidden">
             <ProgressBar.Background>
                 <ImageBrush x:Name="ImgPBRecordBack" ImageSource="/progressbar-backgrnd.png"/>
             </ProgressBar.Background>
@@ -62,7 +62,24 @@
                 </ControlTemplate>
             </ProgressBar.Template>
         </ProgressBar>
-        <Label x:Name="lbRecordPB" Content="Label" HorizontalAlignment="Center" Margin="0,69,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbRecordPB" Content="Recording in progress..." HorizontalAlignment="Center" Margin="0,57,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" HorizontalContentAlignment="Center" Visibility="Hidden">
+            <Label.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFF100B7"/>
+                    <GradientStop Color="#FF8D00FF" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Foreground>
+        </Label>
+        <Button x:Name="btnStop" Content="Button" HorizontalAlignment="Center" Margin="0,166,0,0" VerticalAlignment="Top" Width="56" Height="56" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="btnStop_Click" MouseMove="btnStop_MouseMove" MouseLeave="btnStop_MouseLeave">
+            <Button.Background>
+                <ImageBrush x:Name="ImgBackStop" ImageSource="/button-stop-inactive.png"/>
+            </Button.Background>
+            <Button.Template>
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}" Width="56" Height="56"/>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
 
     </Grid>
 </Window>
